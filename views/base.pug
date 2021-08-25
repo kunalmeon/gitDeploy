@@ -1,0 +1,78 @@
+//- doctype html
+//- html
+//-     head
+//-         meta(charset='UTF-8')
+//-         link(rel="stylesheet", href="css/style.css")
+//-         title Notours| exciting tour for advanturous people
+//-     body
+//-         h1 welcome to base template
+//-         //Header
+//-         header.header
+//-         nav.tours
+//-             a.nav__el(href="#") All Tours
+//-         .header__logo
+//-             img.logo(src="img/logo.png", alt="Natours Logo")
+//-         nav.users
+//-             //- a.nav(href='#') My Bookings
+//-             //- a.nav(href="#")
+//-             //-     img.userImage(src="img/userImage.png", alt="")
+//-             button.logIn Log In
+//-             button.singUp Sign Up
+//-         //Section
+//-         section.overview
+//-             h1 Tour
+
+//-         //Footer
+//-         footer.footer
+//-             img(src="img/footer.png", alt="")
+//-             ul.listItems          
+//-                 li: a(href="#") About Us
+//-                 li: a(href="#") Download apps
+//-                 li: a(href="#") Become a guide
+//-                 li: a(href="#") Careers
+//-                 li: a(href="#") Contact  
+            
+                    
+                        
+//-             p &copy; Kunal
+    
+    //- we can refactor this base template such that header content and footer can be placed 
+        separately. After that we can include them inside our base template file.
+
+doctype html
+html 
+        head
+       
+            meta(http-equiv='Content-Security-Policy' content="default-src 'self' data: gap: 'unsafe-eval' ws: ;\
+                style-src 'self' 'unsafe-inline'; style-src *;")
+           
+            link(rel="stylesheet", href="css/style.css")
+            title Notours|#{title}
+
+        body
+            //Header        
+            include _header
+
+           
+            //-First we will check if there is user or not .i.e logged in or not?
+                If logged in then we will pass id inside it so that in the backend we could know
+                about the information of perticular tour  
+            if user
+                button.btn.btn--green.span-all-rows(data-tour-id=`${tour.id}`) Book tour now!
+            else 
+                a.btn(href='/login') Login to book tour  
+            //-Now we have button that holds the id of the tour. So it is time that we will make
+                logic that will process the payment. Let us make stripe.js file inside public/js folder.
+                5 go to     public/js
+            
+            //Footer
+            include _footer
+
+
+            //- including javascript file
+          
+            
+            //- script(src="https://unpkg.com/axios/dist/axios.min.js")
+            //stripe script
+            script(src='https://js.stripe.com/v3/')
+            script(src="/js/bundle.js")

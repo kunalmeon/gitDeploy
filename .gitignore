@@ -1,0 +1,5 @@
+# We dont need node modules
+node_modules
+#we dont want .env files
+settings.env
+.cache/
