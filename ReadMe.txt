@@ -61,3 +61,20 @@ PREPARING OF DEPLOYMENT.
     "build.js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
     and run this code into command line using "npm run build.js"  to get final build of all the
      javascript file.
+
+            once we bundle final files. We get .cache files which we can easily remove from .gitIgnore.
+5.) Since we have mase may changes now it is time to update and commit them from command line.
+
+
+//Heroku.
+As always make account on heroku and download setup for OS this case windows is mine.
+Once we have installed we need to login heroku from command line using "heroku login".
+Before opening web app we need to fix couple of things 
+
+first is we have to replace start:"nodemon server.js" with start:'node server' because we selected 
+'node' language while downloading heroku installer. 
+
+Second we need to specify the version of node in oreder to work for others so that they must need to
+have node version as same as the one we used to develope the app. Since chagnes were made let us commit
+to github
+
