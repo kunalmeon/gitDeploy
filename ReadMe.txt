@@ -78,3 +78,23 @@ Second we need to specify the version of node in oreder to work for others so th
 have node version as same as the one we used to develope the app. Since chagnes were made let us commit
 to github
 
+Third the port given to server should be inside the process.env.port because Heroku behind the scene 
+it will assing port automatically., 3000,4000 wont work.
+
+Fourth now let us create web app on heroku using "heroku create" command.
+
+Fifth Once we created web app now it is time to push our code into heroku just like we did in github
+    "git push heroku master".
+Note: Once we delete app in heroku page we also need to remove remote from the command
+line using "git remote rm heroku". And then follow above steps.
+
+Sixth Once the created we can open our app  using "heroku open" but heroku does not know about the infomation saved in
+.env file like database url password and other things since we have execuled "settngs.env" file.
+To see the error we have "heroku logs --tail". 
+So we need to config them manually using "heroku config:set variables in .env file".
+
+Note: sometime we have to specify variables names inside the quoet.
+
+
+
+
