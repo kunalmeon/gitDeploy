@@ -1,4 +1,4 @@
-// require("dotenv").config({ path: "./settings.env" });
+require("dotenv").config({ path: "./settings.env" });
 const mongoose = require("mongoose");
 process.on("uncaughtException", (err) => {
   console.log(err.stack);
